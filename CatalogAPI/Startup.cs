@@ -55,16 +55,16 @@ namespace CatalogAPI
                 //////c.AddDefaultPolicy(x => x.AllowAnyOrigin()
                 //////.AllowAnyMethod()
                 //////.AllowAnyHeader());
-                c.AddPolicy("AllowPartners", x =>
-                {
-                    x.WithOrigins("http://microsoft.com", "http://sunergetics.com")
-                    .WithMethods("GET", "POST")
-                    .AllowAnyHeader();
+                //c.AddPolicy("AllowPartners", x =>
+                //{
+                //    x.WithOrigins("http://microsoft.com", "http://sunergetics.com")
+                //    .WithMethods("GET", "POST")
+                //    .AllowAnyHeader();
 
-                   // x.WithOrigins("http://microsofttest.com", "http://sunergeticstest.com")
-                   //.WithMethods("POST", "POST")
-                   //.AllowAnyHeader();
-                });
+                //   // x.WithOrigins("http://microsofttest.com", "http://sunergeticstest.com")
+                //   //.WithMethods("POST", "POST")
+                //   //.AllowAnyHeader();
+                //});
 
                 c.AddPolicy("AllowAll", x =>
                 {
@@ -113,14 +113,14 @@ namespace CatalogAPI
             app.UseCors("AllowAll");
             app.UseSwagger();  //https://localhost:44393/swagger/v1/swagger.json
 
-            if (env.IsDevelopment())
-            {
+            //if (env.IsDevelopment())
+            //{
                 app.UseSwaggerUI(config =>
                 {
                     config.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog API");
                     config.RoutePrefix = "";
                 });
-            }
+           // }
 
             app.UseAuthentication();
 
